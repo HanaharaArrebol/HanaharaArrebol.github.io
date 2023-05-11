@@ -195,7 +195,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-05-11 21:37:23 / 修改时间：21:37:54" itemprop="dateCreated datePublished" datetime="2023-05-11T21:37:23+08:00">2023-05-11</time>
+              <time title="创建时间：2023-05-11 21:37:23 / 修改时间：22:10:53" itemprop="dateCreated datePublished" datetime="2023-05-11T21:37:23+08:00">2023-05-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,14 +227,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.3k</span>
+              <span>3.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -246,207 +246,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>欢迎使用 <strong>{小书匠}(xiaoshujiang)笔记软件</strong>，您可以通过 <code>小书匠主按钮&gt;模板</code> 里的模板管理来改变新建文章的内容。、<br>[toc!?depth&#x3D;2]</p>
-<hr>
-<hr>
-<h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><ol>
-<li><strong>快速数值求解</strong><br>  随机时滞（常、分布、时变等）微分方程<br>  随机时滞偏微分方程（周期、狄利克雷和诺伊曼或罗宾等边界条件）</li>
-<li><strong>分数阶处理，可调用程序</strong></li>
-<li><strong>噪声生成</strong><br>  高斯、levy、possion</li>
-<li><strong>分岔图</strong><br>1个参数的 平面图<br>2个参数的 立体图</li>
-<li><strong>解的功率谱、概率密度</strong><br>平稳的<br>瞬时的</li>
-<li><strong>期望、方差、自相关函数、自协方差函数、互协方差函数等</strong></li>
-<li><strong>信息熵、相对熵（KL散度）、交叉熵</strong></li>
-</ol>
-<hr>
-<h1 id="程序结构："><a href="#程序结构：" class="headerlink" title="程序结构："></a>程序结构：</h1><ul>
-<li><p><strong>快速数值求解程序结构</strong>：</p>
-<ul>
-<li>输入：<ol>
-<li>数学模型（微分方程或偏微分方程）</li>
-<li>初始条件（或者边界条件）</li>
-<li>时滞（常量或者函数形式）</li>
-<li>求解参数（步长、时间段、误差等）</li>
-</ol>
-</li>
-<li>处理：<br>1. 数值解算法（例如欧拉法、Runge-Kutta法等）<ol start="2">
-<li>时间步进</li>
-<li>计算微分方程&#x2F;偏微分方程解</li>
-<li>估计误差</li>
-</ol>
-</li>
-<li>输出：<br>  1.数值解<br>  2.相应的误差估计<br>  3.其他可能的结果，如动力学图像等</li>
-</ul>
-</li>
-<li><p><strong>分数阶处理程序结构</strong>：</p>
-<ul>
-<li>输入：<ol>
-<li>数学模型（分数阶微分方程或偏微分方程）</li>
-<li>初始条件（或者边界条件）</li>
-<li>求解参数（步长、时间段、误差等）</li>
-</ol>
-</li>
-<li>处理：<ol>
-<li>数值解算法（例如欧拉法、Runge-Kutta法等）</li>
-<li>时间步进</li>
-<li>计算分数阶微分方程&#x2F;偏微分方程解</li>
-<li>估计误差</li>
-</ol>
-</li>
-<li>输出：<ol>
-<li>数值解</li>
-<li>相应的误差估计</li>
-<li>其他可能的结果，如动力学图像等</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p><strong>噪声生成程序结构</strong>：</p>
-<ul>
-<li>输入：<ol>
-<li>噪声类型（高斯、levy、possion等）</li>
-<li>噪声强度</li>
-<li>噪声时长</li>
-</ol>
-</li>
-<li>处理：<br>  生成相应类型的噪声</li>
-<li>输出：<br>  生成的噪声</li>
-</ul>
-</li>
-<li><p><strong>分岔图程序结构</strong>：</p>
-<ul>
-<li>输入：<ol>
-<li>数学模型</li>
-<li>参数变化范围和步长</li>
-<li>初始条件</li>
-</ol>
-</li>
-<li>处理：<br>  1.对每个参数取不同的值<ol start="2">
-<li>求解相应的数值解</li>
-<li>检测相应的分岔</li>
-</ol>
-</li>
-<li>输出：<br>  分岔图（平面图或者立体图）</li>
-</ul>
-</li>
-<li><p><strong>解的功率谱和概率密度程序结构</strong>：</p>
-<ul>
-<li>输入：<ol>
-<li>数值解</li>
-<li>时间步长</li>
-</ol>
-</li>
-<li>处理：<ol>
-<li>对数值解进行离散傅里叶变换，计算功率谱密度</li>
-<li>计算概率密度</li>
-</ol>
-</li>
-<li>输出：<ol>
-<li>解的功率谱</li>
-<li>解的概率密度</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p><strong>统计分析程序结构</strong>：</p>
-<ul>
-<li>输入：<br>  数值解</li>
-<li>处理：<br>  计算期望、方差、自相关函数、自协方差函数、互协方差函数等</li>
-<li>输出：<br>  期望、方差、自相关函数、自协方差函数、互协方差函数等结果</li>
-</ul>
-</li>
-<li><p><strong>信息熵、相对熵和交叉熵程序结构</strong>：</p>
-<ul>
-<li>输入：<br>  数值解</li>
-<li>处理：<br>  计算信息熵、相对熵和交叉熵等</li>
-<li>输出：<br>  信息熵、相对熵和交叉熵等结果</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h1><h2 id="采用结构体存储待求解问题的各项参数-结构体p-func：待求解微分方程-gt-y0：初值-tspan：求解时间区间-dt：时间步长。在等距算法中默认为0-1。-lags：时滞，若不含时滞，请输入0或者不输入，默认为0-options：采用matlab自带的求解器时需要-Solver：求解器选择"><a href="#采用结构体存储待求解问题的各项参数-结构体p-func：待求解微分方程-gt-y0：初值-tspan：求解时间区间-dt：时间步长。在等距算法中默认为0-1。-lags：时滞，若不含时滞，请输入0或者不输入，默认为0-options：采用matlab自带的求解器时需要-Solver：求解器选择" class="headerlink" title="采用结构体存储待求解问题的各项参数* 结构体p    * func：待求解微分方程        &gt;    * y0：初值    * tspan：求解时间区间    * dt：时间步长。在等距算法中默认为0.1。    * lags：时滞，若不含时滞，请输入0或者不输入，默认为0    * options：采用matlab自带的求解器时需要    * Solver：求解器选择"></a>采用结构体存储待求解问题的各项参数<br>* 结构体<code>p</code><br>    * <code>func</code>：待求解微分方程<br>        &gt;<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;func = @myfun; </span><br><span class="line">&gt;<span class="function"><span class="keyword">function</span> <span class="title">dy</span> = <span class="title">myfun</span><span class="params">(t,y,Z)</span></span></span><br><span class="line"> dy = <span class="number">1</span>/y;</span><br><span class="line">&gt;<span class="keyword">end</span></span><br></pre></td></tr></table></figure><br>    * <code>y0</code>：初值<br>    * <code>tspan</code>：求解时间区间<br>    * <code>dt</code>：时间步长。在等距算法中默认为0.1。<br>    * <code>lags</code>：时滞，若不含时滞，请输入0或者不输入，默认为0<br>    * <code>options</code>：采用<code>matlab</code>自带的求解器时需要<br>    * <code>Solver</code>：求解器选择</h2><h1 id="快速数值求解程序"><a href="#快速数值求解程序" class="headerlink" title="快速数值求解程序"></a>快速数值求解程序</h1><h2 id="基于个人能力问题，不能保证内置的所有求解器都能很好的得到满意的数值解，因此，开放数值求解程序的接口，使用者可以自定义求解程序，不过求解程序须符合我们的输入输出标准。"><a href="#基于个人能力问题，不能保证内置的所有求解器都能很好的得到满意的数值解，因此，开放数值求解程序的接口，使用者可以自定义求解程序，不过求解程序须符合我们的输入输出标准。" class="headerlink" title="基于个人能力问题，不能保证内置的所有求解器都能很好的得到满意的数值解，因此，开放数值求解程序的接口，使用者可以自定义求解程序，不过求解程序须符合我们的输入输出标准。"></a>基于个人能力问题，不能保证内置的所有求解器都能很好的得到满意的数值解，因此，开放数值求解程序的接口，使用者可以自定义求解程序，不过求解程序须符合我们的输入输出标准。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol = solvename(func,yo,tspan,lags,dt,options,noise)</span><br></pre></td></tr></table></figure></h2><h1 id="分岔图"><a href="#分岔图" class="headerlink" title="分岔图"></a>分岔图</h1><blockquote>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="function"><span class="keyword">function</span> <span class="title">bif</span> = <span class="title">bifurcation</span><span class="params">(parameter,solution,tgrid,Calmethod)</span></span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><code>parameter</code>：分岔图中作为横坐标的变化的参数（<strong>mx1</strong>）</li>
-<li><code>solution</code>:对于微分方程而言，<code>solution</code>中的一行存储的是一个解的时间序列，如果有多个（如<code>!$y_1、y_2$</code>）,需要将其存储在不同的<code>solution</code>中，例如<code>solution1</code>、<code>solution2</code>。<code>solution</code>的大小为<strong>mxn</strong>.</li>
-<li><code>tgrid</code>:时间网格，即时间的离散形式，举例说明：tgrid &#x3D; 0:0.1:1。其大小为<strong>1xn</strong></li>
-<li><code>Calmethod</code>:计算方法，在可选参数中进行选择：<code>max</code>,<code>part</code>,<code>poincare</code><ul>
-<li><code>max</code>：按最大值方法选取点</li>
-<li><code>part</code>：选取部分点绘图</li>
-<li><code>poincare</code>:庞加莱截面<blockquote>
-<p><strong>注意</strong>，<code>tgrid</code>只在做庞加莱截面方法时是需要的。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="解的功率谱和概率密度"><a href="#解的功率谱和概率密度" class="headerlink" title="解的功率谱和概率密度"></a>解的功率谱和概率密度</h1><p>经典谱估计 和 现代谱估计</p>
-<h1 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h1><h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yanghh/p/13284119.html">期望</a></h2><dl><dt>期望</dt><dd>试验中每次可能结果的概率乘以其结果的总和，反映随机变量平均取值的大小。<br>期望 ≠ 样本均值。<br>数学期望是从概率分布角度得到的，是个确定的常数，也可称为总体均值，样本均值是来自有限个样本，是从统计的角度得到的。(均值是一个统计量(对观察样本的统计)，期望是一种概率论概念，是一个数学特征)<br>期望是与算术平均值通过大数定律联系在一起，<strong>概率是频率随样本趋于无穷的极限</strong>，即<strong>期望就是平均数随样本趋于无穷的极限</strong>。</dd></dl><blockquote>
-<p><strong>大数定律</strong> 规定，随着重复次数接近无穷大，数值的算术平均值几乎肯定地收敛于期望值</p>
-</blockquote>
-<h2 id="方差"><a href="#方差" class="headerlink" title="方差"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/XZHSakura/article/details/106602744">方差</a></h2><p>概率论中方差用来度量随机变量和其数学期望（均值）之间的偏离程度。<br>统计中的方差（样本方差）是每个样本值与全体样本值的平均数之差的平方值的平均数。</p>
-<ul>
-<li>总体方差(有偏估计)</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\sigma^2 = \frac&#123;\sum\limits_&#123;i=1&#125;^&#123;N&#125;(X_i-\mu)^2&#125;&#123;N&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<ul>
-<li>样本方差(无偏估计)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">S^2  = \frac&#123;1&#125;&#123;n-1&#125;\sum\limits_&#123;i=1&#125;^&#123;N&#125;(X_i-\bar&#123;X&#125;)^2</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="自相关函数-自协方差方程"><a href="#自相关函数-自协方差方程" class="headerlink" title="自相关函数(自协方差方程)"></a>自相关函数(自协方差方程)</h2><dl><dt><a target="_blank" rel="noopener" href="https://blog.csdn.net/perke/article/details/117732680">自相关函数</a><br>: * 自相关也叫做序列相关，是一个信号于其自身在不同时间点的互相关。非正式地来说，它就是两次观察之间地相似度对他们之间地时间差的函数。它是找出<code>重复模式</code>（如被噪声掩盖的周期信号），或识别隐含在信号谐波频率中<code>消失的基频</code>的数学工具。常用于信号处理中分析函数或者一系列值，如时域信号。</dt><dd>* 自相关函数是<strong>信号间隔的函数</strong>，间隔有正负间隔，所以n个长度的信号，有2n-1个自相关函数值，分别描述的是不同信号间隔的相似程度。</dd></dl><p>自相关函数是随机过程在两个不同时刻直接相乘的期望（若是复数第二项取共轭），自协方差是在各时刻减去均值相乘取期望。对于零均值信号来讲，两者是相同的，故自协方差相当于去均值的自相关。</p>
-<blockquote>
-<p>对于相关系数的大小所表示的意义目前在统计学界尚不一致，但通常按下是这样认为的：</p>
-<table>
-<thead>
-<tr>
-<th>相关系数</th>
-<th>相关程度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0.00-±0.30</td>
-<td>微相关</td>
-</tr>
-<tr>
-<td>±0.30-±0.50</td>
-<td>实相关</td>
-</tr>
-<tr>
-<td>±0.50-±0.80</td>
-<td>显著相关</td>
-</tr>
-<tr>
-<td>±0.80-±1.00</td>
-<td>高度相关</td>
-</tr>
-</tbody></table>
-</blockquote>
-<h3 id="无偏估计"><a href="#无偏估计" class="headerlink" title="无偏估计"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/01b4c9d652ff">无偏估计</a></h3><p>无偏估计是用样本统计量来估计总体参数时的一种无偏推断。估计量的数学期望等于被估计参数的真实值，则称此估计量为被估计参数的无偏估计，即具有无偏性，是一种用于评价估计量优良性的准则。无偏估计的意义是：在多次重复下，它们的平均数接近所估计的参数真值。</p>
-<h3 id="有偏估计"><a href="#有偏估计" class="headerlink" title="有偏估计"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/01b4c9d652ff">有偏估计</a></h3><p>有偏估计（biased estimate）是指由样本值求得的估计值与待估参数的真值之间有系统误差，其期望值不是待估参数的真值。在统计学中，估计量的偏差（或偏差函数）是此估计量的期望值与估计参数的真值之差。偏差为零的估计量或决策规则称为无偏的。否则该估计量是有偏的。</p>
-<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><ul>
-<li>自相关函数<br>对于一时间序列<code>!$X$</code>，其自相关函数记为<code>!$R_&#123;X,X&#125;$</code>，期望<code>!$E(X)=\mu$</code>,方差<code>!$Var(X)=\sigma^2$</code><br>自相关函数为<code>!$ R_&#123;X,X&#125;=E[X(t_1)X(t_2)] $</code><br>对于离散信号（序列）：<code>!$R_&#123;X,X&#125;(n)=\sum\limits_&#123;m=-\infty&#125;^&#123;+\infty&#125;X(m)X(m+n)$</code></li>
-<li>自相关系数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$\rho_&#123;X,X&#125;=\frac&#123;cov(X(t_1),X(t_2))&#125;&#123;\sigma_&#123;X(t_1)&#125;\sigma_&#123;X(t_2)&#125;&#125; =\frac&#123;E[X(t_1)X(t_2)]-E[X(t_1)]E[X(t_2)]&#125;&#123;\sigma_&#123;X(t_1)&#125;\sigma_&#123;X(t_2)&#125;&#125;</span><br><span class="line">\\ =\frac&#123;R_&#123;X,X&#125;-\mu^2&#125;&#123;\sigma^2&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></li>
-<li>自协方差函数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">Cov(X(t_1),X(t_2))=E[X(t_1)X(t_2)]-E[X(t_1)]E[X(t_2)]=R_&#123;X,X&#125;-\mu_&#123;X(t_1)&#125;\mu_&#123;X(t_2)&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></li>
-<li>互协方差函数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">Cov(X,Y)=E[X,Y]-E[X]E[Y]</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></li>
-<li>互相关函数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$R_&#123;X,Y&#125;(n)=\sum\limits_&#123;m=-\infty&#125;^&#123;+\infty&#125;X(m)Y(m+n)$$</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35379531#:~:text=%E4%BF%A1%E6%81%AF%E7%86%B5%E6%98%AF%E4%BC%A0%E8%BE%93%E4%B8%80%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%8A%B6%E6%80%81%E5%80%BC%E6%89%80%E9%9C%80%E7%9A%84%E6%AF%94%E7%89%B9%E4%BD%8D%E4%B8%8B%E7%95%8C%EF%BC%88%E6%9C%80%E7%9F%AD%E5%B9%B3%E5%9D%87%E7%BC%96%E7%A0%81%E9%95%BF%E5%BA%A6%EF%BC%89%E3%80%82%20%E7%9B%B8%E5%AF%B9%E7%86%B5%E6%98%AF%E6%8C%87%E7%94%A8%20q%20%E6%9D%A5%E8%A1%A8%E7%A4%BA%E5%88%86%E5%B8%83%20p,%E9%A2%9D%E5%A4%96%E9%9C%80%E8%A6%81%E7%9A%84%E7%BC%96%E7%A0%81%E9%95%BF%E5%BA%A6%E3%80%82%20%E4%BA%A4%E5%8F%89%E7%86%B5%E6%98%AF%E6%8C%87%E7%94%A8%E5%88%86%E5%B8%83%20q%20%E6%9D%A5%E8%A1%A8%E7%A4%BA%E6%9C%AC%E6%9D%A5%E8%A1%A8%E7%A4%BA%E5%88%86%E5%B8%83%20p%20%E7%9A%84%E5%B9%B3%E5%9D%87%E7%BC%96%E7%A0%81%E9%95%BF%E5%BA%A6%E3%80%82">信息熵</a></h1><dl><dt>信息熵</dt><dd>描述系统的不确定性程度</dd></dl><ul>
-<li>越不可能发生的事情，信息量越大，必定发生的事情，信息量为0</li>
-<li>信息量越大，信息熵也越大</li>
-<li>几个独立事件同时发生的信息量&#x3D;每个时间的信息量之和</li>
-</ul>
-<h2 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">I(x)=-logP(x)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注：<code>!$log$</code>的基选取不同的值在不同学科中代表的意义不一样</p>
-</blockquote>
-<h2 id="信息熵-1"><a href="#信息熵-1" class="headerlink" title="信息熵"></a>信息熵</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">H(P)=E_&#123;X-P&#125;[I(x)]=-E_&#123;X-P&#125;[logP(x)]=-\sum\limits_&#123;i&#125;P(x_i)logP(x_i)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<h2 id="相对熵-KL散度"><a href="#相对熵-KL散度" class="headerlink" title="相对熵(KL散度)"></a>相对熵(KL散度)</h2><p>原始分布<code>!$P$</code>和近似分布<code>!$Q$</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">KL(P||Q)=\sum\limits_&#123;i&#125;P(x_i)log\frac&#123;P(x_i)&#125;&#123;Q(x_i)&#125;=E[logP(x)-logQ(x)] \\</span><br><span class="line">=-H(P)-\sum\limits_&#123;i&#125;P(x_i)logQ(x_i)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<p>当原始分布与近似分布完全一致是，KL散度为0，因此，KL散度越小，分布越相似。<br><strong>相对熵的非对称性质</strong>：<code>!$KL(P||Q)\neq KL(Q||P)$</code></p>
-<h2 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h2><p>对于两个分布<code>!$P$</code>和<code>!$Q$</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">H(P,Q)=-E_&#123;X-P&#125;[logQ(x)]=-\sum\limits_&#123;i&#125;P(x_i)logQ(x_i)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<p><strong>交叉熵也具有非对称性质</strong></p>
-
+          <p>统计分析相关<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/05/11/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -527,7 +335,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -546,7 +354,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>pix2tex可获取数学公式的图像并返回相应的 LaTeX 代码<br>Pix2Text 期望成为 Mathpix 的免费开源 Python 替代工具，完成与 Mathpix 类似的功能。当前 Pix2Text 可识别截屏图片中的数学公式、英文、或者中文文字。</p>
+          <p>pix2tex可获取数学公式的图像并返回相应的 LaTeX 代码<br>Pix2Text 期望成为 Mathpix 的免费开源 Python 替代工具，完成与 Mathpix 类似的功能。当前 Pix2Text 可识别截屏图片中的数学公式、英文、或者中文文字。<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/05/11/pix2tex%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/#more" rel="contents">
@@ -637,7 +445,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.2k</span>
+              <span>8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -656,7 +464,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Python 基础语法介绍，快速入门Python</p>
+          <p>Python 基础语法介绍，快速入门Python<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/05/10/Python%E5%85%A5%E9%97%A8/#more" rel="contents">
@@ -828,7 +636,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">12 分钟</span>
+    <span title="站点阅读时长">13 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -935,6 +743,59 @@ $(document).ready(function() {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
